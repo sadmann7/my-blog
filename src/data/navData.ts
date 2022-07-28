@@ -1,10 +1,11 @@
 interface NavData {
+  id: number;
   title: string;
   link?: string;
 }
 
 export const navData: NavData[] = [
-  { title: 'Blog', link: '/blog' },
-  { title: 'About me', link: '/me' },
-  { title: 'Projects', link: '/projects' },
+  { id: 1, title: 'Blog', link: '/blog' },
+  { id: 2, title: 'About me', link: '/me' },
+  { id: 3, title: 'Projects', link: '/projects' },
 ];

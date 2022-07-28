@@ -76,13 +76,14 @@
 .theme__btn {
   position: fixed;
   top: 29.5rem;
-  left: -50rem;
+  left: -200%;
   right: 0;
+  margin: 0 auto;
   display: grid;
   place-items: center;
+  transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .theme__btn--active {
   left: 0;
-  margin-inline: auto;
 }
