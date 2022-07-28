@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { BiMoon } from 'react-icons/bi';
 import { FiSun } from 'react-icons/fi';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import { navData } from '../../data/navData';
 import { useOnClickOutside } from '../../hooks/useOnClickOutside';
 import NavLinks from './NavLinks';
 
@@ -82,34 +81,53 @@ const Navbar: FC = () => {
     setIsOpen(false);
   };
 
+  const mobileMenuVariants = {
+    open: { x: '-50%' },
+    closed: { x: '-150%' },
+  };
+
+  const navBtnVariants = {
+    open: { rotate: 90 },
+    closed: { rotate: 0 },
+  };
+
+  const themeBtnVariants = {
+    open: { rotate: 360 },
+    closed: { rotate: 0 },
+  };
+
   return (
     <div className="min-h-[6rem] w-[100%] font-medium text-[1.1rem]  whitespace-nowrap transition-all">
       <div
         className={`${
-          isChanged && 'bg-red-400'
+          isChanged && 'bg-red-300 dark:bg-gray-600'
         } fixed top-0 left-0 w-[100%] z-50 transition-all`}
       >
-        <nav className="w-[89vw] max-w-6xl mx-auto py-7 md:py-5 justify-between md:flex md:items-center md:justify-between">
+        <nav className="w-[89vw] max-w-6xl mx-auto mb-[.19rem] py-5 md:py-3 md:flex md:items-center md:justify-between">
           <div className="md:flex gap-20">
             <div className="flex justify-between items-center">
               <NavLink to="/">
-                <p className="nav__logo relative font-semibold text-lg text-gray-800 dark:text-slate-50 hover:text-black dark:hover:text-white  after:bg-gray-900 dark:after:bg-white">
+                <p className="nav__logo relative font-semibold text-lg text-gray-800 dark:text-slate-100 hover:text-black dark:hover:text-white  after:bg-gray-900 dark:after:bg-white">
                   Sadman Sakib
                 </p>
               </NavLink>
-              <button
+              <motion.button
                 className="md:hidden dark:text-white"
                 ref={navBtnRef}
                 onClick={() => setIsOpen(!isOpen)}
+                animate={isOpen ? 'open' : 'closed'}
+                variants={navBtnVariants}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ type: 'spring', stiffness: 100, duration: 0.5 }}
               >
                 {isOpen ? <FaTimes size={25} /> : <FaBars size={25} />}
-              </button>
+              </motion.button>
             </div>
             <ul
               className={`${
                 isOpen ? 'nav__mobile nav__mobile--active' : 'nav__mobile'
-              } 
-              }  md:bg-transparent md:flex md:relative md:top-auto md:left-auto md:translate-x-0 md:p-0 md:h-auto md:flex-row md:gap-10 text-gray-600 dark:text-slate-200 transition-all`}
+              }  bg-purple-300 dark:bg-slate-500 md:bg-transparent md:dark:bg-transparent text-gray-700 dark:text-slate-200 md:flex md:relative md:top-auto md:left-auto md:translate-x-0 md:p-0 md:h-auto md:flex-row md:gap-10 transition-all`}
             >
               <NavLinks handleSelect={handleSelect} />
               <a
@@ -117,25 +135,33 @@ const Navbar: FC = () => {
                 target="_blank"
                 onClick={handleSelect}
               >
-                <li className="nav__link relative hover:text-gray-900 dark:hover:text-white after:bg-gray-900 dark:after:bg-white">
+                <li className="nav__link relative hover:text-gray-900 dark:hover:text-slate-50 after:bg-gray-900 dark:after:bg-white">
                   Github
                 </li>
               </a>
             </ul>
           </div>
-          <button
+          <motion.button
             className={`${
               isOpen ? 'theme__btn theme__btn--active' : 'theme__btn'
-            }  md:hover:scale-110 md:active:scale-90 transition-all md:relative md:top-0 md:left-0 md:translate-x-0 w-12 h-12 border-solid border-2 border-black dark:border-white rounded-full cursor-pointer z-10`}
+            } md:relative md:top-0 md:left-0 md:right-0 md:mx-0 w-11 h-11 border-solid border-2 border-black dark:border-white rounded-full cursor-pointer z-10`}
             ref={themeBtnRef}
             onClick={switchTheme}
+            animate={isOpen ? 'open' : 'closed'}
+            variants={themeBtnVariants}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9, rotate: 360 }}
+            transition={{ type: 'spring', stiffness: 100, duration: 0.5 }}
           >
             {isDark ? (
               <BiMoon size={20} className="text-white" />
             ) : (
-              <FiSun size={20} className="dark:text-white scale-110" />
+              <FiSun
+                size={20}
+                className="dark:text-white scale-110 transition-all"
+              />
             )}
-          </button>
+          </motion.button>
         </nav>
       </div>
     </div>
