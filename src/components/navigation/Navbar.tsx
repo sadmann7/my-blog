@@ -1,4 +1,4 @@
-import { FC, useState, useId, useEffect, useRef } from 'react';
+import { FC, useState, useEffect, useRef } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { BiMoon } from 'react-icons/bi';
@@ -94,20 +94,20 @@ const Navbar: FC = () => {
   };
 
   return (
-    <div className="min-h-[6rem] w-[100%] font-medium text-[1.1rem]  whitespace-nowrap transition-all">
+    <div className="min-h-[6rem] w-[100%] whitespace-nowrap transition-all">
       <div
         className={`${
           isChanged && 'bg-red-300 dark:bg-gray-600'
         } fixed top-0 left-0 w-[100%] z-50 transition-all`}
       >
         <motion.nav
-          className="w-[89vw] max-w-6xl mx-auto mb-[.11rem] py-5 md:py-3 md:flex md:items-center md:justify-between"
+          className="parent__div mb-1 py-5 md:py-3 md:flex md:items-center md:justify-between"
           animate={isOpen ? 'open' : 'closed'}
         >
           <div className="md:flex gap-20">
             <div className="flex justify-between items-center">
               <NavLink to="/">
-                <p className="nav__logo relative font-semibold text-lg text-gray-800 dark:text-slate-100 hover:text-black dark:hover:text-white  after:bg-gray-900 dark:after:bg-white">
+                <p className="nav__logo text-xl relative font-semibold text-gray-800 dark:text-slate-100 hover:text-black dark:hover:text-white  after:bg-gray-900 dark:after:bg-white">
                   Sadman Sakib
                 </p>
               </NavLink>
@@ -121,7 +121,7 @@ const Navbar: FC = () => {
                 whileTap={{ scale: 0.9 }}
                 transition={{ type: 'spring', stiffness: 100, duration: 0.5 }}
               >
-                {isOpen ? <FaTimes size={25} /> : <FaBars size={25} />}
+                {isOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
               </motion.button>
             </div>
             <NavLinksCtn isOpen={isOpen} handleSelect={handleSelect} />
@@ -129,7 +129,7 @@ const Navbar: FC = () => {
           <motion.button
             className={`${
               isOpen ? 'theme__btn theme__btn--active' : 'theme__btn'
-            } border-black dark:border-white text-black dark:text-white  md:relative md:top-0 md:left-0 md:right-0 md:mx-0 w-11 h-11 border-solid border-2  rounded-full cursor-pointer z-10`}
+            } border-black dark:border-white text-black dark:text-white md:relative md:top-0 md:left-0 md:right-0 md:mx-0 w-11 h-11 border-solid border-2 rounded-full cursor-pointer z-10`}
             ref={themeBtnRef}
             onClick={switchTheme}
             animate={isOpen ? 'open' : 'closed'}

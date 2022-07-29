@@ -13,7 +13,7 @@ const NavLinksCtn: FC<Props> = ({ isOpen, handleSelect }: Props) => {
     <ul
       className={`${
         isOpen ? 'nav__mobile nav__mobile--active' : 'nav__mobile'
-      }  bg-purple-300 dark:bg-slate-500 md:bg-transparent md:dark:bg-transparent text-gray-700 dark:text-slate-200 md:flex md:relative md:top-auto md:left-auto md:translate-x-0 md:p-0 md:h-auto md:flex-row md:gap-10 transition-all`}
+      } ul--clamp font-medium bg-purple-300 dark:bg-slate-500 md:bg-transparent md:dark:bg-transparent text-gray-700 dark:text-slate-200 md:flex md:relative md:top-auto md:left-auto md:translate-x-0 md:p-0 md:h-auto md:flex-row md:gap-10 transition-all`}
     >
       {navData.map((item: any) => {
         const { id, label, url } = item;
@@ -21,7 +21,7 @@ const NavLinksCtn: FC<Props> = ({ isOpen, handleSelect }: Props) => {
           <NavLink
             to={url}
             key={id}
-            className="hover:scale-110 active:scale-90 md:hover:scale-100 md:active:scale-100 transition-all"
+            className="hover:scale-110 active:scale-90 md:hover:scale-100 md:active:scale-100 transition-[scale] duration-300 ease-in"
             onClick={handleSelect}
           >
             <li
@@ -38,7 +38,7 @@ const NavLinksCtn: FC<Props> = ({ isOpen, handleSelect }: Props) => {
         className="nav__link--rest"
         onClick={handleSelect}
       >
-        <li className="nav__link relative hover:text-gray-900 dark:hover:text-slate-50 after:bg-gray-900 dark:after:bg-white hover:scale-110 active:scale-90 md:hover:scale-100 md:active:scale-100">
+        <li className="nav__link relative hover:text-gray-900 dark:hover:text-slate-50 after:bg-gray-900 dark:after:bg-white hover:scale-110 active:scale-90 md:hover:scale-100 md:active:scale-100 transition-[scale] duration-300 ease-in">
           Github
         </li>
       </motion.a>

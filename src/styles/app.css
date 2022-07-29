@@ -1,0 +1,45 @@
+:root {
+  --color-black: #000;
+  --color-white: #fff;
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-500: #a9adc1;
+  --color-gray-100: #f7f7f7;
+  --color-gray-200: #e6e9ee;
+  --color-gray-300: #dde0e4;
+  --color-gray-400: #818890;
+  --color-gray-500: #535661;
+  --color-gray-600: #4b4c53;
+  --color-gray-700: #3a3d4a;
+  --color-gray-800: #2e3039;
+  --color-gray-900: #1f2028;
+  --color-red-300: #fca5a5;
+  ---color-red-400: #f87171;
+  --color-red-500: #ff4545;
+  --color-green-300: #86efac;
+  --color-green-400: #4ade80;
+  --color-green-500: #30c85e;
+  --color-blue-300: #93c5fd;
+  --color-blue-400: #60a5fa;
+  --color-blue-500: #3b82f6;
+  --color-yellow-500: #ffd644;
+}
+
+body {
+  background-color: var(--color-white);
+}
+
+.dark body {
+  background-color: var(--color-gray-800);
+}
+
+.parent__div {
+  width: 89vw;
+  max-width: 1280px;
+  margin-inline: auto;
+}
+
+.h1--clamp {
+  font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
+  line-height: initial;
+}

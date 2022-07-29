@@ -1,13 +1,12 @@
 import { FC } from 'react';
+import { useDocTitle } from '../hooks/useDocTitle';
 
 interface Props {}
 
 const Blog: FC<Props> = () => {
-  return (
-    <div className="w-[89vw] max-w-6xl mx-auto h-[150vh] text-black dark:text-white">
-      Blog
-    </div>
-  );
+  useDocTitle('Sadman Sakib');
+
+  return <div className="parent__div text-black dark:text-white">Blog</div>;
 };
 
 export default Blog;
