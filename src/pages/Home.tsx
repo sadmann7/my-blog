@@ -1,6 +1,8 @@
-import React from 'react';
+import { FC } from 'react';
 
-const Home = () => {
+interface Props {}
+
+const Home: FC<Props> = () => {
   return (
     <div className="w-[89vw] max-w-6xl mx-auto h-[150vh] text-black dark:text-white">
       Home

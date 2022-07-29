@@ -9,17 +9,23 @@ import NavLinksCtn from './NavLinksCtn';
 
 const Navbar: FC = () => {
   /** dark mode */
-  const [isDark, setIsDark] = useState<boolean>(true);
+  const [isDark, setIsDark] = useState<boolean>(
+    window.matchMedia('(prefers-color-scheme: dark)').matches
+  );
 
-  if (
-    localStorage.getItem('color-theme') === 'dark' ||
-    (!('color-theme' in localStorage) &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches)
-  ) {
-    document.documentElement.classList.add('dark');
-  } else {
-    document.documentElement.classList.remove('dark');
-  }
+  useEffect(() => {
+    if (
+      localStorage.getItem('color-theme') === 'dark' ||
+      (!('color-theme' in localStorage) &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      document.documentElement.classList.add('dark');
+      setIsDark(true);
+    } else {
+      document.documentElement.classList.remove('dark');
+      setIsDark(false);
+    }
+  }, []);
 
   const switchTheme = () => {
     if (localStorage.getItem('color-theme')) {

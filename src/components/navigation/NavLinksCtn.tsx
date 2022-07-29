@@ -16,10 +16,10 @@ const NavLinksCtn: FC<Props> = ({ isOpen, handleSelect }: Props) => {
       }  bg-purple-300 dark:bg-slate-500 md:bg-transparent md:dark:bg-transparent text-gray-700 dark:text-slate-200 md:flex md:relative md:top-auto md:left-auto md:translate-x-0 md:p-0 md:h-auto md:flex-row md:gap-10 transition-all`}
     >
       {navData.map((item: any) => {
-        const { id, title, link } = item;
+        const { id, label, url } = item;
         return (
           <NavLink
-            to={link}
+            to={url}
             key={id}
             className="hover:scale-110 active:scale-90 md:hover:scale-100 md:active:scale-100 transition-all"
             onClick={handleSelect}
@@ -27,7 +27,7 @@ const NavLinksCtn: FC<Props> = ({ isOpen, handleSelect }: Props) => {
             <li
               className={`nav__link relative hover:text-gray-900 dark:hover:text-slate-50 after:bg-gray-900 dark:after:bg-white md:opacity-100 `}
             >
-              {link && title}
+              {url && label}
             </li>
           </NavLink>
         );
