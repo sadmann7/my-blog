@@ -100,10 +100,7 @@ const Navbar: FC = () => {
           isChanged && 'bg-red-300 dark:bg-gray-600'
         } fixed top-0 left-0 w-[100%] z-50 transition-all`}
       >
-        <motion.nav
-          className="parent__div mb-1 py-5 md:py-3 md:flex md:items-center md:justify-between"
-          animate={isOpen ? 'open' : 'closed'}
-        >
+        <nav className="parent__div mb-1 py-5 md:py-3 md:flex md:items-center md:justify-between">
           <div className="md:flex gap-20">
             <div className="flex justify-between items-center">
               <NavLink to="/">
@@ -126,6 +123,7 @@ const Navbar: FC = () => {
             </div>
             <NavLinksCtn isOpen={isOpen} handleSelect={handleSelect} />
           </div>
+
           <motion.button
             className={`${
               isOpen ? 'theme__btn theme__btn--active' : 'theme__btn'
@@ -148,7 +146,7 @@ const Navbar: FC = () => {
               <FiSun size={20} className="scale-110 transition-all" />
             )}
           </motion.button>
-        </motion.nav>
+        </nav>
       </div>
     </div>
   );

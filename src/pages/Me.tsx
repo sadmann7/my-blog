@@ -6,7 +6,7 @@ interface Props {}
 const Me: FC<Props> = () => {
   useDocTitle('Sadman Sakib');
 
-  return <div className="parent__div text-black dark:text-white">Me</div>;
+  return <div className="parent__div text-gray-900 dark:text-white">Me</div>;
 };
 
 export default Me;
