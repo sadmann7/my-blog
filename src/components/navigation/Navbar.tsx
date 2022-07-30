@@ -98,18 +98,18 @@ const Navbar: FC = () => {
       <div
         className={`${
           isChanged && 'bg-red-300 dark:bg-gray-600'
-        } fixed top-0 left-0 w-[100%] z-50 transition-all`}
+        } fixed top-0 left-0 z-50 w-[100%] transition-all`}
       >
-        <nav className="parent__div mb-1 py-5 md:py-3 md:flex md:items-center md:justify-between">
-          <div className="md:flex gap-20">
-            <div className="flex justify-between items-center">
+        <nav className="parent__div mb-1 py-5 md:flex md:items-center md:justify-between md:py-3">
+          <div className="gap-20 md:flex">
+            <div className="flex items-center justify-between">
               <NavLink to="/">
-                <p className="nav__logo text-xl relative font-semibold text-gray-800 dark:text-slate-100 hover:text-black dark:hover:text-white  after:bg-gray-900 dark:after:bg-white">
+                <p className="nav__logo relative text-xl font-semibold text-gray-800 after:bg-gray-900 hover:text-black dark:text-slate-100  dark:after:bg-white dark:hover:text-white">
                   Sadman Sakib
                 </p>
               </NavLink>
               <motion.button
-                className="md:hidden dark:text-white"
+                className="dark:text-white md:hidden"
                 ref={navBtnRef}
                 onClick={() => setIsOpen(!isOpen)}
                 animate={isOpen ? 'open' : 'closed'}
@@ -127,7 +127,7 @@ const Navbar: FC = () => {
           <motion.button
             className={`${
               isOpen ? 'theme__btn theme__btn--active' : 'theme__btn'
-            } border-black dark:border-white text-black dark:text-white md:relative md:top-0 md:left-0 md:right-0 md:mx-0 w-11 h-11 border-solid border-2 rounded-full cursor-pointer z-10`}
+            } z-10 h-11 w-11 cursor-pointer rounded-full border-2 border-solid border-black text-black dark:border-white dark:text-white md:relative md:top-0 md:left-0 md:right-0 md:mx-0`}
             ref={themeBtnRef}
             onClick={switchTheme}
             animate={isOpen ? 'open' : 'closed'}

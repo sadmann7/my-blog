@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { titleCase } from '../functions/formatString';
 
 export const useDocTitle = (main: string, active?: string | number) => {
-  const [mainTitle, setMainTitle] = useState<string>(main);
+  const mainTitle = main;
   const location = useLocation();
 
   useEffect(() => {
