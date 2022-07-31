@@ -5,7 +5,7 @@ import { useDocTitle } from '../hooks/useDocTitle';
 interface Props {}
 
 const Error: FC<Props> = () => {
-  useDocTitle('Sadman Sakib', 404);
+  useDocTitle();
 
   return (
     <div className="parent__div my-20 flex flex-col-reverse items-center justify-between gap-10 md:flex-row">
