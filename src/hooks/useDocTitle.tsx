@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { titleCase } from '../functions/formatString';
 
-export const useDocTitle = () => {
+export const useDocTitle = (newTitle?: string | number) => {
   const location = useLocation();
   const staticTitle = 'Sadman Sakib';
 
@@ -12,8 +12,8 @@ export const useDocTitle = () => {
     if (activePath === '/') {
       document.title = staticTitle;
     } else {
-      const formatedActiveTitle = titleCase(activePath).replace('/', '');
-      document.title = `${formatedActiveTitle} | ${staticTitle}`;
+      const activeTitle = titleCase(activePath.replace('/', ''));
+      document.title = `${newTitle || activeTitle} | ${staticTitle}`;
     }
-  }, [location]);
+  }, [location, newTitle]);
 };
