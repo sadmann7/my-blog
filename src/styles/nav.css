@@ -55,9 +55,9 @@
 
 .nav__mobile {
   position: fixed;
-  top: 4.47rem;
-  left: 50%;
-  transform: translateX(150%);
+  top: 4.25rem;
+  left: 150%;
+  transform: translateX(-50%);
   padding: 10rem 0;
   display: flex;
   flex-direction: column;
@@ -65,11 +65,11 @@
   gap: 2rem;
   width: 100%;
   height: 100vh;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav__mobile--active {
-  transform: translateX(-50%);
+  left: 50%;
 }
 
 .theme__btn {

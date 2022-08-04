@@ -48,14 +48,14 @@ const Navbar: FC = () => {
     setIsDark(!isDark);
   };
 
-  /** nav background */
-  const [isChanged, setIsChanged] = useState(false);
+  /** sticky navbar*/
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
   const changeNavBg = () => {
     if (window.scrollY > 0) {
-      setIsChanged(true);
+      setIsScrolled(true);
     } else {
-      setIsChanged(false);
+      setIsScrolled(false);
     }
   };
 
@@ -65,6 +65,18 @@ const Navbar: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const navBtnRef = useRef<HTMLButtonElement>(null);
   const themeBtnRef = useRef<HTMLButtonElement>(null);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const hideMenu = () => {
+    setIsOpen(false);
+  };
+
+  const showMenu = () => {
+    setIsOpen(true);
+  };
 
   const hideMobileMenu = (e: any) => {
     if (
@@ -78,11 +90,7 @@ const Navbar: FC = () => {
   };
   useOnClickOutside(navBtnRef, hideMobileMenu);
 
-  /** animation and fixes */
-  const handleSelect = () => {
-    setIsOpen(false);
-  };
-
+  /** framer motion */
   const navBtnVar = {
     open: { rotate: 90 },
     closed: { rotate: 0 },
@@ -94,14 +102,14 @@ const Navbar: FC = () => {
   };
 
   return (
-    <div className="min-h-[6rem] w-[100%] whitespace-nowrap transition-all">
+    <div className="min-h-[4.25rem] whitespace-nowrap transition-all md:min-h-[4.75rem]">
       <div
         className={`${
-          isChanged && 'bg-red-300 dark:bg-gray-600'
-        } fixed top-0 left-0 z-50 w-[100%] transition-all`}
+          isScrolled && 'bg-red-300 transition-all dark:bg-gray-600'
+        } fixed top-0 left-0 z-50 w-[100%]`}
       >
-        <nav className="parent__div mb-1 py-5 md:flex md:items-center md:justify-between md:py-3">
-          <div className="gap-20 md:flex">
+        <nav className="centerDiv py-5 md:flex md:items-center md:justify-between md:py-4">
+          <div className="gap-16 md:flex">
             <div className="flex items-center justify-between">
               <NavLink to="/">
                 <p className="nav__logo relative text-xl font-semibold text-gray-800 after:bg-gray-900 hover:text-black dark:text-slate-100  dark:after:bg-white dark:hover:text-white">
@@ -111,7 +119,7 @@ const Navbar: FC = () => {
               <motion.button
                 className="dark:text-white md:hidden"
                 ref={navBtnRef}
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={toggleMenu}
                 animate={isOpen ? 'open' : 'closed'}
                 variants={navBtnVar}
                 whileHover={{ scale: 1.1 }}
@@ -121,9 +129,13 @@ const Navbar: FC = () => {
                 {isOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
               </motion.button>
             </div>
-            <NavLinksCtn isOpen={isOpen} handleSelect={handleSelect} />
+            <NavLinksCtn
+              isOpen={isOpen}
+              toggleMenu={toggleMenu}
+              hideMenu={hideMenu}
+              showMenu={showMenu}
+            />
           </div>
-
           <motion.button
             className={`${
               isOpen ? 'theme__btn theme__btn--active' : 'theme__btn'

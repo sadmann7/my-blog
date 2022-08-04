@@ -8,7 +8,7 @@ const Home: FC<Props> = () => {
   useDocTitle();
 
   return (
-    <div className="parent__div text-gray-900 dark:text-white">
+    <div className="centerDiv text-gray-900 dark:text-white">
       <Hero />
     </div>
   );

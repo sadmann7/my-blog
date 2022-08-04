@@ -6,7 +6,7 @@ interface Props {}
 const Blog: FC<Props> = () => {
   useDocTitle();
 
-  return <div className="parent__div text-gray-900 dark:text-white">Blog</div>;
+  return <div className="centerDiv text-gray-900 dark:text-white">Blog</div>;
 };
 
 export default Blog;
