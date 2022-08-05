@@ -1,11 +1,11 @@
 import { FC } from 'react';
-import moment from 'moment';
+import { format } from 'date-fns';
 
 const Footer: FC = () => {
   return (
     <div className="centerDiv text-gray-900 dark:text-slate-200">
       <p className="baseClamp text-center font-medium ">
-        Sadman Sakib &copy; {moment().format('yyyy')}
+        Sadman Sakib &copy; {format(new Date(), 'yyyy')}
       </p>
     </div>
   );

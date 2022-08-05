@@ -4,7 +4,7 @@ import { useDocTitle } from '../hooks/useDocTitle';
 
 interface Props {}
 
-const Error: FC<Props> = () => {
+const NotFound: FC<Props> = () => {
   useDocTitle(404);
 
   return (
@@ -28,4 +28,4 @@ const Error: FC<Props> = () => {
   );
 };
 
-export default Error;
+export default NotFound;
