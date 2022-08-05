@@ -65,6 +65,7 @@ const Navbar: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const navBtnRef = useRef<HTMLButtonElement>(null);
   const themeBtnRef = useRef<HTMLButtonElement>(null);
+  const themeBtnChild = document.querySelectorAll('.theme__btn--child');
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -78,12 +79,15 @@ const Navbar: FC = () => {
     setIsOpen(true);
   };
 
-  const hideMobileMenu = (e: any) => {
+  const hideMobileMenu = (e: React.ChangeEvent) => {
     if (
       !e.target.classList.contains('nav__link') &&
       !e.target.classList.contains('theme__btn') &&
-      !(e.target == themeBtnRef.current) &&
-      !(e.target === themeBtnRef.current?.childNodes[0])
+      !(e.target === themeBtnRef.current) &&
+      !(e.target.parentElement === themeBtnRef.current) &&
+      !(e.target.parentElement === null) &&
+      !(e.target.childNodes[0] === themeBtnChild[0]) &&
+      !(e.target.childNodes[1] === undefined)
     ) {
       setIsOpen(false);
     }
@@ -147,15 +151,16 @@ const Navbar: FC = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9, rotate: 720 }}
             transition={{
-              type: 'spring',
-              stiffness: 50,
-              duration: 0.5,
+              duration: 0.3,
             }}
           >
             {isDark ? (
-              <BiMoon size={20} />
+              <BiMoon size={20} className="theme__btn--child" />
             ) : (
-              <FiSun size={20} className="scale-110 transition-all" />
+              <FiSun
+                size={20}
+                className="theme__btn--child scale-110 transition-all"
+              />
             )}
           </motion.button>
         </nav>
