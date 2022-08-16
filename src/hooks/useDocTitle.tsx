@@ -12,7 +12,9 @@ export const useDocTitle = (newTitle?: string | number) => {
     if (activePath === '/') {
       document.title = staticTitle;
     } else {
-      const activeTitle = titleCase(activePath.replace('/', ''));
+      const activeTitle = titleCase(
+        activePath.substring(activePath.lastIndexOf('/') + 1)
+      );
       document.title = `${newTitle || activeTitle} | ${staticTitle}`;
     }
   }, [location, newTitle]);

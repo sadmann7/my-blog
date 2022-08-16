@@ -4,6 +4,8 @@
   --color-slate-50: #f8fafc;
   --color-slate-100: #f1f5f9;
   --color-slate-500: #a9adc1;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
   --color-gray-100: #f7f7f7;
   --color-gray-200: #e6e9ee;
   --color-gray-300: #dde0e4;
@@ -30,13 +32,13 @@ html {
 }
 
 body {
-  background-color: var(--color-white);
-  color: var(--color-gray-900);
+  background-color: var(--color-slate-50);
+  color: var(--color-slate-900);
 }
 
 .dark body {
-  background-color: var(--color-gray-800);
-  color: var(--color-white);
+  background-color: var(--color-slate-900);
+  color: var(--color-slate-50);
 }
 
 .centerDiv {

@@ -20,7 +20,7 @@ const NavLinksCtn: FC<Props> = ({
     <ul
       className={`${
         isOpen ? 'nav__mobile nav__mobile--active' : 'nav__mobile'
-      } ulClamp bg-purple-300 font-medium text-gray-700 dark:bg-slate-500 dark:text-slate-200 md:relative md:top-auto md:left-auto md:flex md:h-auto md:w-auto md:translate-x-0 md:flex-row md:gap-10 md:bg-transparent md:p-0 md:dark:bg-transparent`}
+      } ulClamp bg-purple-300 font-medium text-slate-700 dark:bg-slate-500 dark:text-slate-200 md:relative md:top-auto md:left-auto md:flex md:h-auto md:w-auto md:translate-x-0 md:flex-row md:gap-10 md:bg-transparent md:p-0 md:dark:bg-transparent`}
     >
       {navData.map((item: any) => {
         const { id, label, url } = item;
@@ -33,7 +33,7 @@ const NavLinksCtn: FC<Props> = ({
             onBlur={hideMenu}
             onFocus={showMenu}
           >
-            <li className="nav__link relative after:bg-gray-900 hover:text-gray-900 dark:after:bg-white dark:hover:text-slate-50">
+            <li className="nav__link relative after:bg-slate-900 hover:text-slate-900 dark:after:bg-white dark:hover:text-slate-50">
               {url && label}
             </li>
           </NavLink>
@@ -44,7 +44,7 @@ const NavLinksCtn: FC<Props> = ({
         target="_blank"
         className="transition-transform duration-200 ease-linear hover:scale-110 active:scale-90 md:transition-none md:hover:scale-100 md:active:scale-100"
       >
-        <li className="nav__link relative after:bg-gray-900 hover:text-gray-900 dark:after:bg-white dark:hover:text-slate-50">
+        <li className="nav__link relative after:bg-slate-900 hover:text-slate-900 dark:after:bg-white dark:hover:text-slate-50">
           Github
         </li>
       </motion.a>

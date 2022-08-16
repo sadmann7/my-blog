@@ -48,7 +48,7 @@ const Navbar: FC = () => {
     setIsDark(!isDark);
   };
 
-  /** sticky navbar*/
+  /** sticky nav*/
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
   const changeNavBg = () => {
@@ -109,14 +109,14 @@ const Navbar: FC = () => {
     <div className="min-h-[4.25rem] whitespace-nowrap transition-all md:min-h-[4.75rem]">
       <div
         className={`${
-          isScrolled && 'bg-red-300 transition-all dark:bg-gray-600'
+          isScrolled && 'bg-red-300 transition-all dark:bg-slate-600'
         } fixed top-0 left-0 z-50 w-[100%]`}
       >
         <nav className="centerDiv py-5 md:flex md:items-center md:justify-between md:py-4">
           <div className="gap-16 md:flex">
             <div className="flex items-center justify-between">
-              <NavLink to="/">
-                <p className="nav__logo relative text-xl font-semibold text-gray-800 after:bg-gray-900 hover:text-black dark:text-slate-100  dark:after:bg-white dark:hover:text-white">
+              <NavLink to="/" onClick={toggleMenu}>
+                <p className="nav__logo relative text-xl font-semibold text-slate-800 after:bg-slate-900 hover:text-black dark:text-slate-100  dark:after:bg-white dark:hover:text-white">
                   Sadman Sakib
                 </p>
               </NavLink>
@@ -149,7 +149,7 @@ const Navbar: FC = () => {
             animate={isOpen ? 'open' : 'closed'}
             variants={themeBtnVar}
             whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9, rotate: 720 }}
+            whileTap={{ scale: 0.9, rotate: 360 }}
             transition={{
               duration: 0.3,
             }}
