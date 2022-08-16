@@ -109,14 +109,14 @@ const Navbar: FC = () => {
     <div className="min-h-[4.25rem] whitespace-nowrap transition-all md:min-h-[4.75rem]">
       <div
         className={`${
-          isScrolled && 'bg-red-300 transition-all dark:bg-slate-600'
+          isScrolled && 'bg-red-300 transition-all dark:bg-gray-600'
         } fixed top-0 left-0 z-50 w-[100%]`}
       >
         <nav className="centerDiv py-5 md:flex md:items-center md:justify-between md:py-4">
           <div className="gap-16 md:flex">
             <div className="flex items-center justify-between">
               <NavLink to="/" onClick={toggleMenu}>
-                <p className="nav__logo relative text-xl font-semibold text-slate-800 after:bg-slate-900 hover:text-black dark:text-slate-100  dark:after:bg-white dark:hover:text-white">
+                <p className="nav__logo relative text-xl font-semibold text-gray-800 after:bg-gray-900 hover:text-black dark:text-slate-100  dark:after:bg-white dark:hover:text-white">
                   Sadman Sakib
                 </p>
               </NavLink>

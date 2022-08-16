@@ -3,7 +3,7 @@ import heroImg from '../assets/images/hero.jpg';
 
 const Hero: FC = () => {
   return (
-    <div className="mt-8 flex flex-col justify-between gap-6 text-slate-900 dark:text-slate-50 md:flex-row md:items-center md:gap-16">
+    <div className="mt-8 flex flex-col justify-between gap-6 text-gray-900 dark:text-slate-50 md:flex-row md:items-center md:gap-16">
       <div className="md:w-3/5">
         <p className="text-xl sm:text-2xl md:text-3xl">
           I am Sadman. This is the documentation of my journey of learning web
